@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 55 400 270" width="512" height="512">
+  <!-- обрезанный вид дерева из logo.svg (убираем текст, берём только крону) -->
+  <!-- цвет фона иконки — Egg Shell -->
+  <rect x="50" y="55" width="400" height="270" rx="60" fill="#ede7db"/>
+  <!-- embedded logo paths: используем use+symbol для favicon -->
+  <!-- копируем ключевые ветки напрямую из logo.svg -->
+  <g transform="translate(0,0)">
+    <!-- ствол -->
+    <path d="M250,310 Q248.30461442517117,273 250.95798285398632,236" stroke="#3a5028" stroke-width="16.0" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- горизонтальная базовая линия -->
+    <path d="M152,310 L348,310" stroke="#3a5028" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- основные ветки вправо и влево -->
+    <path d="M250.0,236.0 Q220.5,220.5 196.5,197.3" stroke="#3a5028" stroke-width="6.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M250.0,236.0 Q279.5,220.5 303.5,197.3" stroke="#3a5028" stroke-width="6.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M196.5,197.3 Q173.8,210.6 148.0,206.0" stroke="#3a5028" stroke-width="4.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M303.5,197.3 Q326.2,210.6 352.0,206.0" stroke="#3a5028" stroke-width="4.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- верхушка кроны -->
+    <path d="M250,236 Q245,210 242,185 Q240,165 250,148" stroke="#3a5028" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M250,148 Q230,130 215,108 Q205,90 210,72" stroke="#3a5028" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M250,148 Q270,130 285,108 Q295,90 290,72" stroke="#3a5028" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M250,148 Q248,118 250,90" stroke="#3a5028" stroke-width="5.0" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- листья/точки -->
+    <circle cx="210" cy="72" r="7" fill="#3a5028"/>
+    <circle cx="290" cy="72" r="7" fill="#3a5028"/>
+    <circle cx="250" cy="64" r="9" fill="#3a5028"/>
+    <circle cx="148" cy="206" r="6" fill="#3a5028"/>
+    <circle cx="352" cy="206" r="6" fill="#3a5028"/>
+  </g>
+</svg>
