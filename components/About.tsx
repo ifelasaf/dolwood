@@ -15,9 +15,6 @@ export default function About() {
           <Reveal as="p" className="eyebrow">
             О компании
           </Reveal>
-          <Reveal as="h2" className="section-title" delay={1}>
-            Бук от распила до готовой детали
-          </Reveal>
           <Reveal className="about__text" delay={2}>
             <p>
               Dolwood — производство пиломатериалов из бука в городском округе

@@ -92,7 +92,7 @@ section {
   gap: 8px;
   font-family: var(--font-sans);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 1000;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--moss);
@@ -369,7 +369,7 @@ section {
   align-items: center;
 }
 .hero h1 {
-  font-size: clamp(38px, 6vw, 72px);
+  font-size: clamp(38px, 6vw, 55px);
   letter-spacing: -0.02em;
 }
 .hero h1 em {
