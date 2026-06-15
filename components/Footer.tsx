@@ -1,6 +1,7 @@
 import { nav, site } from "@/lib/site";
 import { Telegram, WhatsApp, Mail } from "./Icons";
-import Image from "next/image";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Footer() {
   const year = 2026;
@@ -10,8 +11,9 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <a href="#top" className="logo logo--img logo--footer">
-              <Image
-                src="/logo.svg"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${BASE}/logo.svg`}
                 alt="Dolwood"
                 width={500}
                 height={420}

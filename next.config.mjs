@@ -22,6 +22,10 @@ const nextConfig = {
   output: "export",
   trailingSlash: true,
   basePath,
+  // Expose basePath to client components via process.env
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
   },

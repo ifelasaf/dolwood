@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
 import { Menu, Close } from "./Icons";
 import ContactMenu, { contactItems } from "./ContactMenu";
-import Image from "next/image";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,13 +30,13 @@ export default function Header() {
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="header__inner">
         <a href="#top" className="logo logo--img" aria-label={`${site.name} — на главную`}>
-          <Image
-            src="/logo.svg"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${BASE}/logo.svg`}
             alt="Dolwood"
             width={500}
             height={420}
             className="logo-svg"
-            priority
           />
         </a>
 
@@ -55,7 +56,7 @@ export default function Header() {
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <Close /> : <Menu />}
+            {open ? <Close width={24} height={24} /> : <Menu width={24} height={24} />}
           </button>
         </div>
       </div>
