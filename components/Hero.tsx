@@ -11,7 +11,7 @@ export default function Hero() {
             <em>Буковая доска</em> оптом для мебельного производства
           </Reveal>
           <Reveal as="p" className="hero__lead" delay={2}>
-            Камерная сушка 8±2%, толщины 25 / 30 / 40 / 50 мм.
+            Камерная сушка 8±2%, толщины 30 / 40 / 50 мм.
             Производство в Московской области, городской округ Щёлково. Самовывоз или доставка транспортной компанией.
           </Reveal>
 
@@ -26,7 +26,7 @@ export default function Hero() {
               <span>влажность камерной сушки</span>
             </div>
             <div className="fact">
-              <b>25–50 мм</b>
+              <b>30–50 мм</b>
               <span>толщины под ваши задачи</span>
             </div>
             <div className="fact">
@@ -45,7 +45,7 @@ export default function Hero() {
               <Check width={20} height={20} /> Буковая доска обрезная, сорта A / AB / B
             </li>
             <li>
-              <Check width={20} height={20} /> Толщины 25 / 30 / 40 / 50 мм
+              <Check width={20} height={20} /> Толщины 30 / 40 / 50 мм
             </li>
             <li>
               <Check width={20} height={20} /> Камерная сушка 8±2%

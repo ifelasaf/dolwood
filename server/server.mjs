@@ -92,7 +92,7 @@ export function validateLead(input) {
   const phone = /^[+\d\s()\-]+$/.test(value.contact) && digits.length >= 10 && digits.length <= 15;
   if (!email && !phone) return null;
   if (value.quantity && (!Number.isFinite(Number(value.quantity)) || Number(value.quantity) <= 0 || (value.kind === 'parts' && !Number.isInteger(Number(value.quantity))))) return null;
-  if (value.kind === 'board' && value.size && !['25','30','40','50'].includes(value.size)) return null;
+  if (value.kind === 'board' && value.size && !['30','40','50'].includes(value.size)) return null;
   if (value.grade && !['A','AB','B'].includes(value.grade)) return null;
   if (!value.page.startsWith('/') || /[?#\r\n]/.test(value.page)) return null;
   return value;
