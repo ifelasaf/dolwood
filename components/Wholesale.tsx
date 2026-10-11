@@ -1,43 +1,37 @@
 import Reveal from "./Reveal";
-import { Plank, Panel, Drop, ArrowRight } from "./Icons";
+import { Plank, Drop, ArrowRight } from "./Icons";
 
 const products = [
   {
     icon: Plank,
     title: "Доска обрезная",
-    text: "Буковая доска камерной сушки. Толщины 25 / 32 / 40 / 50 мм, длина до 3 м.",
-    list: ["Сорта A / AB / B", "Влажность 8–10%", "Под распил и мебель"],
-  },
-  {
-    icon: Panel,
-    title: "Мебельный щит",
-    text: "Цельноламельный и сращённый щит из бука под столешницы, фасады, ступени.",
-    list: ["Любые размеры под заказ", "Шлифованный", "Для фабрик и мастеров"],
+    text: "Буковая доска камерной сушки. Толщины 25 / 30 / 40 / 50 мм, длина до 3 м.",
+    list: ["Сорта A / AB / B", "Влажность 8±2%", "Под распил и мебель"],
   },
   {
     icon: Drop,
     title: "Сушка и сортировка",
-    text: "Контроль влажности и отбор по сорту. Доска приходит стабильной по партии.",
+    text: "Контроль влажности и отбор по сорту. Подбор доски по сорту и размерам.",
     list: ["Камерная сушка", "Отбор по сорту/длине", "Паллетирование под ТК"],
   },
 ];
 
 export default function Wholesale() {
   return (
-    <section className="section bg-eggshell" id="opt">
+    <section className="section bg-eggshell" id="opt" data-placement="wholesale">
       <div className="container">
         <div className="section-head">
           <Reveal as="h2" className="section-title" delay={1}>
             Оптовые продажи буковой доски
           </Reveal>
           <Reveal as="p" className="section-lead" delay={2}>
-            Прозрачные цены за кубометр, отгрузка от 1 м³ и градация для опта.
+            Подберём сорт и размеры буковой доски для вашего производства.
             Самовывоз из Щёлково или доставка вашей транспортной компанией в
             любой регион.
           </Reveal>
         </div>
 
-        <div className="cards" style={{ marginBottom: 22 }}>
+        <div className="cards cards--2" style={{ marginBottom: 22 }}>
           {products.map((p, i) => {
             const Icon = p.icon;
             return (
@@ -60,29 +54,13 @@ export default function Wholesale() {
         <Reveal className="cards cards--2" delay={1}>
           <div className="card">
             <h3>Цены на буковую доску</h3>
-            <div style={{ marginTop: 18 }}>
-              <div className="price-row">
-                <span>Доска бук, сухая · до 10 м³</span>
-                <b>70 000 ₽/м³</b>
-              </div>
-              <div className="price-row">
-                <span>Доска бук, сухая · от 10 м³</span>
-                <b>65 000 ₽/м³</b>
-              </div>
-              <div className="price-row">
-                <span>Минимальная партия</span>
-                <b>от 1 м³</b>
-              </div>
-              <div className="price-row">
-                <span>Условия оплаты</span>
-                <b>предоплата 50%</b>
-              </div>
-            </div>
-            <p className="note">
-              Точная цена зависит от сорта, толщины и длины. Пришлём актуальный
-              прайс и фото партии под ваш объём.
-            </p>
-            <a className="btn btn-primary" href="#kontakty" style={{ marginTop: 22 }}>
+            <p>Пришлём актуальный прайс и фото доски под ваш запрос.</p>
+            <details className="price-details"><summary>Посмотреть цены и условия</summary>
+              <div className="price-row"><span>Партия от 1 до менее 10 м³</span><b>73 000 ₽/м³</b></div>
+              <div className="price-row"><span>Партия от 10 м³</span><b>68 000 ₽/м³</b></div>
+              <p className="note">Цена по сорту и размерам — в предложении. Минимальная партия — 1 м³.</p>
+            </details>
+            <a className="btn btn-primary" href="#request-board" style={{ marginTop: 22 }}>
               Запросить прайс <ArrowRight width={18} height={18} />
             </a>
           </div>
@@ -97,7 +75,7 @@ export default function Wholesale() {
             <h3>Кому подходит</h3>
             <ul className="card__list" style={{ marginTop: 16 }}>
               <li>Мебельным фабрикам — стабильное сырьё под производство</li>
-              <li>Столярным мастерским — доска и щит под проекты</li>
+              <li>Столярным мастерским — буковая доска под проекты</li>
               <li>Производителям лестниц, дверей, столешниц</li>
               <li>Изготовителям массивной мебели и декора</li>
             </ul>

@@ -18,24 +18,28 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // блокируем прокрутку body при открытом мобильном меню
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    const previous = document.body.style.overflow;
+    if (open) document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
   }, [open]);
 
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   return (
-    <header className={`header ${scrolled ? "scrolled" : ""}`}>
+    <header data-placement="header" className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="header__inner">
-        <a href="#top" className="logo logo--img" aria-label={`${site.name} — на главную`}>
+        <a href={`${BASE}/`} className="logo logo--img" aria-label={`${site.name} — на главную`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${BASE}/logo.svg`}
+            src={`${BASE}/logo-v3.png`}
             alt="Dolwood"
-            width={500}
-            height={420}
+            width={1368}
+            height={1149}
             className="logo-svg"
           />
         </a>
@@ -54,6 +58,7 @@ export default function Header() {
             className="burger"
             aria-label={open ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <Close width={24} height={24} /> : <Menu width={24} height={24} />}
@@ -61,7 +66,7 @@ export default function Header() {
         </div>
       </div>
 
-      <div className={`mobile-menu ${open ? "open" : ""}`}>
+      <div id="mobile-navigation" hidden={!open} className={`mobile-menu ${open ? "open" : ""}`}>
         <nav className="mobile-menu__nav" aria-label="Мобильная навигация">
           {nav.map((n) => (
             <a

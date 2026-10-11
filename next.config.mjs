@@ -15,7 +15,9 @@ const cname = existsSync("./public/CNAME")
 const repo = (process.env.GITHUB_REPOSITORY ?? "").split("/")[1] ?? "";
 
 // Use basePath only when deployed without a custom domain
-const basePath = !cname && repo ? `/${repo}` : "";
+const basePath = !cname && repo && !repo.endsWith(".github.io") ? `/${repo}` : "";
+const owner = (process.env.GITHUB_REPOSITORY ?? "").split("/")[0];
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (cname ? `https://${cname}` : owner ? `https://${owner}.github.io${basePath}` : "https://dolwood.ru");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,6 +27,7 @@ const nextConfig = {
   // Expose basePath to client components via process.env
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_SITE_URL: siteUrl.replace(/\/$/, ""),
   },
   images: {
     unoptimized: true,

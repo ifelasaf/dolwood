@@ -6,17 +6,17 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export default function Footer() {
   const year = 2026;
   return (
-    <footer className="footer">
+    <footer className="footer" data-placement="footer">
       <div className="container">
         <div className="footer__grid">
           <div>
-            <a href="#top" className="logo logo--img logo--footer">
+            <a href={`${BASE}/`} className="logo logo--img logo--footer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`${BASE}/logo.svg`}
+                src={`${BASE}/logo-v3.png`}
                 alt="Dolwood"
-                width={500}
-                height={420}
+                width={1368}
+                height={1149}
                 className="logo-svg"
               />
             </a>

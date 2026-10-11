@@ -2,8 +2,8 @@ import Reveal from "./Reveal";
 
 const stats = [
   { b: "Щёлково", s: "собственное производство в Московской области" },
-  { b: "Отечественный", s: "бук без импортных рисков, стабильное снабжение" },
-  { b: "8±2%", s: "камерная сушка — доску не ведёт и не трескается" },
+  { b: "Отечественный", s: "сырьё для мебельного производства" },
+  { b: "8±2%", s: "целевая влажность камерной сушки" },
   { b: "B2B", s: "опыт работы с мебельными фабриками" },
 ];
 
@@ -12,9 +12,7 @@ export default function About() {
     <section className="section bg-cream" id="about">
       <div className="container about__grid">
         <div>
-          <Reveal as="p" className="eyebrow">
-            О компании
-          </Reveal>
+          <Reveal as="h2" className="section-title">Собственное производство в Щёлково</Reveal>
           <Reveal className="about__text" delay={2}>
             <p>
               Dolwood — производство пиломатериалов из бука в городском округе

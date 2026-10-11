@@ -1,5 +1,5 @@
 import Reveal from "./Reveal";
-import { Leg, Saw, Panel, ArrowRight } from "./Icons";
+import { Leg, Saw, ArrowRight } from "./Icons";
 
 const items = [
   {
@@ -15,17 +15,17 @@ const items = [
   {
     icon: Leg,
     title: "Балясины и стойки",
-    text: "Балясины, столбы и элементы лестниц из массива бука и других пород.",
+    text: "Балясины, столбы и элементы лестниц из массива бука.",
   },
   {
     icon: Saw,
     title: "Токарные и фрезерные детали",
-    text: "Токарка и ЧПУ-фрезеровка с точной повторяемостью геометрии в партии.",
+    text: "Токарная и фрезерная обработка с точной повторяемостью геометрии в партии.",
   },
   {
-    icon: Panel,
-    title: "Мебельный щит на заказ",
-    text: "Щит и ламель под заданные размеры для столешниц, фасадов, полок.",
+    icon: Leg,
+    title: "Декор с покраской",
+    text: "Мебельный декор из бука с покраской. Цвет и отделку согласуем при расчёте заказа.",
   },
   {
     icon: Saw,
@@ -36,11 +36,11 @@ const items = [
 
 export default function Blanks() {
   return (
-    <section className="section bg-linen" id="zagotovki">
+    <section className="section bg-linen" id="zagotovki" data-placement="blanks">
       <div className="container">
         <div className="section-head">
           <Reveal as="h2" className="section-title" delay={1}>
-            Изготовление заготовок мебельного декора на заказ
+            Заготовки и декор из бука по чертежам
           </Reveal>
           <Reveal as="p" className="section-lead" delay={2}>
             Берём на себя нарезку и обработку деталей по чертежам заказчика —
@@ -80,11 +80,12 @@ export default function Blanks() {
           <div style={{ maxWidth: "46ch" }}>
             <h3 style={{ marginBottom: 8 }}>Есть чертёж или образец?</h3>
             <p>
-              Пришлите спецификацию — рассчитаем стоимость детали и сроки. Берём
+              Пришлите спецификацию — рассчитаем стоимость детали и сроки.
+              Берём
               как партии для фабрик, так и небольшие заказы для мастеров.
             </p>
           </div>
-          <a className="btn btn-primary" href="#kontakty">
+          <a className="btn btn-primary" href="#request-parts">
             Рассчитать заказ <ArrowRight width={18} height={18} />
           </a>
         </Reveal>

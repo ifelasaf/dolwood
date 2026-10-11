@@ -61,7 +61,7 @@ export default function ContactMenu({
 
   if (variant === "fab") {
     return (
-      <div className={`contact-fab ${open ? "open" : ""}`} ref={ref}>
+      <div data-placement="floating" className={`contact-fab ${open ? "open" : ""}`} ref={ref}>
         {open && panel}
         <button
           type="button"

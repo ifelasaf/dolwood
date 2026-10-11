@@ -1,0 +1,7 @@
+import PageIntro from "@/components/PageIntro";
+import Blanks from "@/components/Blanks";
+import RequestComposer from "@/components/RequestComposer";
+import Contacts from "@/components/Contacts";
+import { pageMetadata } from "@/lib/seo";
+export const metadata = pageMetadata("Мебельные заготовки и декор из бука по чертежам | Dolwood", "Ножки, царги, подлокотники, балясины, токарные и фрезерные детали из бука на заказ. Декор с покраской. Расчёт по чертежу или образцу.", "/zagotovki-iz-buka/");
+export default function Page() { return <main id="main-content"><PageIntro title="Мебельные заготовки из бука на заказ" label="Заготовки и декор" path="/zagotovki-iz-buka/" description="Детали для мебельных производств по чертежу, эскизу или образцу. Обрабатываем бук; размеры, количество и отделку согласуем до запуска заказа." /><Blanks /><section className="section bg-cream"><div className="container"><h2 className="section-title">Что прислать для расчёта</h2><ol className="spec-list"><li>Чертёж с размерами и допусками либо фото образца с размерами.</li><li>Количество каждого вида деталей и назначение изделия.</li><li>Требования к поверхности: без отделки или декор с покраской; нужный цвет.</li><li>Желаемый срок и город доставки или самовывоз.</li></ol><p className="delivery-note">Пришлите известные параметры — поможем уточнить спецификацию и подготовим расчёт стоимости и сроков.</p></div></section><RequestComposer kind="parts" /><Contacts /></main>; }

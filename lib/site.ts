@@ -13,11 +13,15 @@ export const site = {
   emailHref: "mailto:alina_dolova@mail.ru",
 };
 
+export const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://dolwood.ru").replace(/\/$/, "");
+export const pathHref = (path: string) => `${basePath}${path}`;
+export const absoluteUrl = (path: string) => `${siteUrl}${path}`;
+
 export const nav = [
-  { href: "#about", label: "О компании" },
-  { href: "#opt", label: "Опт бука" },
-  { href: "#zagotovki", label: "Заготовки" },
-  { href: "#preimushchestva", label: "Преимущества" },
-  { href: "#process", label: "Как работаем" },
-  { href: "#kontakty", label: "Контакты" },
+  { href: pathHref("/bukovaya-doska/"), label: "Доска оптом" },
+  { href: pathHref("/zagotovki-iz-buka/"), label: "Заготовки и декор" },
+  { href: pathHref("/dostavka-i-oplata/"), label: "Доставка и оплата" },
+  { href: pathHref("/#about"), label: "Производство" },
+  { href: pathHref("/#kontakty"), label: "Контакты" },
 ];

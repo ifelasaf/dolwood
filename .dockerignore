@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.git
+.env*
+server/data
+docs/screenshots
+*.sqlite*
+*.csv

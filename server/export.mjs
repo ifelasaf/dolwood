@@ -1,0 +1,13 @@
+import { DatabaseSync } from 'node:sqlite';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { writeFileSync } from 'node:fs';
+const dbPath = process.env.DB_PATH || resolve(dirname(fileURLToPath(import.meta.url)), 'data/leads.sqlite');
+const output = process.argv[2];
+if (!output) throw new Error('Укажите файл для выгрузки: node server/export.mjs /private/tmp/leads.csv');
+const db = new DatabaseSync(dbPath, { readOnly: true });
+const fields = ['id','created_at','status','kind','contact','size','quantity','grade','city','note','page'];
+const rows = db.prepare(`SELECT ${fields.join(',')} FROM leads ORDER BY created_at DESC`).all();
+const cell = value => { let s = String(value ?? ''); if (/^[\s]*[=+@-]/.test(s)) s = "'" + s; return '"' + s.replaceAll('"','""') + '"'; };
+writeFileSync(output, '\ufeff' + [fields.join(';'), ...rows.map(row=>fields.map(f=>cell(row[f])).join(';'))].join('\r\n'), { mode: 0o600, flag: 'wx' });
+db.close(); console.log(`Выгружено заявок: ${rows.length}. Файл создан с ограниченным доступом.`);

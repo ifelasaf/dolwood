@@ -12,7 +12,7 @@ const contacts = [
 
 export default function Contacts() {
   return (
-    <section className="section bg-linen" id="kontakty">
+    <section className="section bg-linen" id="kontakty" data-placement="contacts">
       <div className="container">
         <div className="section-head">
           <Reveal as="p" className="eyebrow">
@@ -68,7 +68,7 @@ export default function Contacts() {
             </p>
             <a
               className="btn btn-light"
-              href={`${site.whatsappText}буковой%20доской`}
+              href={`${site.whatsappText}заказ%20из%20бука`}
               target="_blank"
               rel="noopener noreferrer"
             >

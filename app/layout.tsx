@@ -1,95 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
-import { site } from "@/lib/site";
+import localFont from "next/font/local";
+import Script from "next/script";
+import { site, siteUrl, pathHref } from "@/lib/site";
+import YandexMetrica from "@/components/YandexMetrica";
+import MobileAction from "@/components/MobileAction";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ScrollTop from "@/components/ScrollTop";
 import "./globals.css";
-
-const display = Playfair_Display({
-  subsets: ["latin", "cyrillic"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const body = Manrope({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
-
+const display = localFont({ src: "./fonts/PlayfairDisplay.ttf", variable: "--font-display", display: "swap", weight: "400 900" });
+const body = localFont({ src: "./fonts/Manrope.ttf", variable: "--font-body", display: "swap", weight: "200 800" });
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dolwood.ru"),
-  icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    apple: "/icon.svg",
-  },
-  title: "Dolwood — буковая доска оптом и мебельные заготовки на заказ | Щёлково",
-  description:
-    "Производство пиломатериалов из бука в Щёлково. Оптовые продажи буковой доски камерной сушки от 1 м³ и изготовление мебельных заготовок (ножки, подлокотники, царги, балясины) по чертежам. Доставка по России.",
-  keywords: [
-    "буковая доска оптом",
-    "доска бук камерной сушки",
-    "мебельные заготовки на заказ",
-    "ножки для мебели из бука",
-    "мебельный щит бук",
-    "пиломатериал бук",
-    "Dolwood",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "ru_RU",
-    title: "Dolwood — буковая доска оптом и заготовки на заказ",
-    description:
-      "Бук от производителя в Щёлково: доска оптом от 1 м³ и мебельные заготовки по чертежам. Доставка по России.",
-    siteName: "Dolwood",
-  },
-  alternates: { canonical: "/" },
+  metadataBase: new URL(`${siteUrl}/`),
+  icons: { icon: [
+    { url: pathHref("/favicon-v2-32.png"), type: "image/png", sizes: "32x32" },
+    { url: pathHref("/favicon-v2-192.png"), type: "image/png", sizes: "192x192" },
+  ] },
   robots: { index: true, follow: true },
+  verification: { yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined },
 };
-
-export const viewport: Viewport = {
-  themeColor: "#ede7db",
-  width: "device-width",
-  initialScale: 1,
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Dolwood",
-  description:
-    "Производство буковой доски и мебельных заготовок на заказ в Щёлково.",
-  areaServed: "RU",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Щёлково",
-    addressRegion: "Московская область",
-    addressCountry: "RU",
-  },
-  telephone: "+79267174764",
-  email: site.email,
-  makesOffer: [
-    { "@type": "Offer", name: "Буковая доска оптом" },
-    { "@type": "Offer", name: "Изготовление мебельных заготовок на заказ" },
-  ],
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="ru" className={`${display.variable} ${body.variable}`}>
-      <body>
-        {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </body>
-    </html>
-  );
+export const viewport: Viewport = { themeColor: "#ede7db", width: "device-width", initialScale: 1 };
+const jsonLd = { "@context": "https://schema.org", "@type": "Organization", "@id": `${siteUrl}/#organization`,
+  name: "Dolwood", url: `${siteUrl}/`, logo: `${siteUrl}/logo-v3.png`, telephone: "+79267174764", email: site.email,
+  description: "Буковая доска оптом и изготовление мебельных заготовок в городском округе Щёлково, Московская область.",
+  sameAs: [site.telegram] };
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return <html lang="ru" className={`${display.variable} ${body.variable}`}><body>
+    <a className="skip-link" href="#main-content">Перейти к содержанию</a>
+    <YandexMetrica /><Header />{children}<Footer /><MobileAction /><ScrollTop />
+    <Script src="https://code.jivo.ru/widget/IPo9Nx4dIu" strategy="afterInteractive" />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+  </body></html>;
 }

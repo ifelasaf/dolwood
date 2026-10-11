@@ -35,6 +35,11 @@ jobs:
         run: npm ci
 
       - name: Build (static export → out/)
+        env:
+          NEXT_PUBLIC_YANDEX_METRICA_ID: ${{ vars.NEXT_PUBLIC_YANDEX_METRICA_ID }}
+          NEXT_PUBLIC_YANDEX_VERIFICATION: ${{ vars.NEXT_PUBLIC_YANDEX_VERIFICATION }}
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_LEADS_API_URL: ${{ vars.NEXT_PUBLIC_LEADS_API_URL }}
         run: npm run build
 
       - name: Upload Pages artifact
